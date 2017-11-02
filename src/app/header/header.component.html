@@ -5,4 +5,9 @@
       <a [routerLink]="[link.url]" #rtlk (click)="rtlk.blur();">{{link.title}}</a>
     </li>
   </ul>
+
+  <div class="search-bar">
+    <input placeholder="text here"/>
+    <button #sb1 (click)="sb1.blur()"><fa name="search" size="1x"></fa></button>
+  </div>
 </nav>

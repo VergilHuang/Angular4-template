@@ -22,8 +22,18 @@ import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
         // height: '0',
         display: 'none'
       })),
-      transition('dropdown => collepse' , animate(`180ms ease-out`)),
-      transition('collepse => dropdown' , animate(`180ms ease-in`))
+      transition('dropdown => collepse' , animate(`100ms ease-out`)),
+      transition('collepse => dropdown' , animate(`100ms ease-in`))
+    ]),
+    trigger('rotateArrow', [
+      state('dropdown', style({
+        transform: 'rotate(90deg)'
+      })),
+      state('collepse', style({
+        transform: 'rotate(0deg)'
+      })),
+      transition('dropdown => collepse' , animate(`100ms linear`)),
+      transition('collepse => dropdown' , animate(`100ms linear`))
     ])
   ]
 })
@@ -42,6 +52,7 @@ export class SideBarComponent implements OnInit , OnChanges {
   }
   onToggleSubMenu(link: Link) {
     link.state = link.state === 'collepse' ? 'dropdown' : 'collepse';
+
   }
 
   private handleRWD() {

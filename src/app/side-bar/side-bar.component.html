@@ -5,7 +5,8 @@
   <ul class="sidebar-list">
     <li *ngFor="let link of links">
       <a *ngIf="!link.isGroup" class="sidebar-link" [routerLink]="[link.url]">{{link.title}}</a>
-      <a *ngIf="link.isGroup" class="sidebar-link" (click)="onToggleSubMenu(link)">{{link.title}}</a>
+      <a *ngIf="link.isGroup" class="sidebar-link" (click)="onToggleSubMenu(link);">{{link.title}}</a>
+      <fa *ngIf="link.isGroup" class="link-arrow" [@rotateArrow]="link.state" name="chevron-right" size="1x" #linkArr></fa>
       <ul class="sidebar-sublist" *ngIf="link.subLinks" [@sidebarDropdown]="link.state">
           <li *ngFor="let subLinks of link.subLinks">
             <a class="sidebar-sublink" [routerLink]="[subLinks.url]">{{subLinks.title}}</a>

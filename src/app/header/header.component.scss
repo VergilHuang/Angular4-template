@@ -1,3 +1,6 @@
+
+$link-color: rgb(85, 26, 139);
+
 .header{
   box-shadow: 0 2px 4px #888;
   position: fixed;
@@ -52,18 +55,31 @@
   }
 }
 
+.search-bar{
+  float: right;
+  display: inline-block;
+  position: relative;
+  height: 50%;
+  top: 25%;
+  right: 40px;
 
-@-webkit-keyframes ripple {
-  0%   {}
-  25%  {background-color: #eee;}
-  75%  {}
-  100% {}
+  input{
+    position: relative;
+    height: 100%;
+    width: 190px;
+    padding-left: 12px;
+    padding-right: 26px;
+    border-radius: 15px;
+  }
+  button{
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: rgba(0,0,0,0);
+    border: none;
+    width: 35px;
+
+  }
 }
 
-/* Standard syntax */
-@keyframes ripple {
-  0%   {}
-  25%  {background-color: #eee;}
-  75%  {}
-  100% {}
-}

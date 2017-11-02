@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 // @import "./src/a11y";
+$link-color: rgb(85, 26, 139);
 
 * {
   -webkit-box-sizing: border-box;
@@ -68,7 +69,7 @@ a {
   cursor: pointer;
   text-decoration: none;
   font-family: "微軟正黑體", Helvetica, Arial, sans-serif;
-  color: rgb(85, 26, 139);
+  color: $link-color;
   &:focus{
     outline: none;
 
@@ -91,6 +92,7 @@ select, button {
 }
 input {
   cursor: auto;
+  outline: none;
 }
 
      a::selection,

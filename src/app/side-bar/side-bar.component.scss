@@ -1,3 +1,5 @@
+$link-color: rgb(85, 26, 139);
+
 .sidebar-container{
   margin: 44px 0 0 20px;
 }
@@ -6,9 +8,11 @@
   padding: 0;
   margin: 0;
   list-style: none;
+
   li{
     width: 100%;
     // display: inline-block;
+    position: relative;
   }
 }
 
@@ -19,6 +23,7 @@
   li{
     width: 100%;
     display: inline-block;
+    position: relative;
   }
 }
 
@@ -41,3 +46,13 @@
     background-color: rgba(0,0,0,0.1);
   }
 }
+
+.link-arrow{
+  color: $link-color;
+  position: absolute;
+  right: 22px;
+  top: 0.48rem;
+  transition: 0.1s linear;
+
+}
+
