@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+// @import "./src/a11y";
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  family: "微軟正黑體", Helvetica, Arial, sans-serif;
+}
+
+html {
+  font-size: 16px;
+}
+
+p,a,span{
+  font-size: 1rem;
+}
+
+pre {
+  font-size: 0.9rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2.5rem;
+}
+h3 {
+  font-size: 2rem;
+}
+h4 {
+  font-size: 1.5rem;
+}
+h5 {
+  font-size: 1.3rem;
+}
+h6 {
+  font-size: 0.8rem;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: #fdfdfd;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+h1, h1, h2, h3, h4, h5, h6, p, span{
+  font-family: "微軟正黑體", Helvetica, Arial, sans-serif;
+  -webkit-user-select: none;
+  /* Chrome, Opera, Safari */
+  -moz-user-select: none;
+  /* Firefox 2+ */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Standard syntax */
+  cursor: default;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "微軟正黑體", Helvetica, Arial, sans-serif;
+  color: rgb(85, 26, 139);
+  &:focus{
+    outline: none;
+
+  }
+  &:hover,
+  &:active{
+    // color: #005dfb;
+  }
+}
+
+table, div {
+  word-break: break-all;
+  word-wrap: break-word;
+}
+table thead > tr {
+  white-space: nowrap;
+}
+select, button {
+  cursor: pointer;
+}
+input {
+  cursor: auto;
+}
+
+     a::selection,
+button::selection,{
+	background: rgba(0,0,0,0);
+
+}
+
+//
+.vg-container{
+  margin: 24px 36px;
+}
+
+.vg-pre{
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  white-space: normal;
+  padding: 8px 12px;
+  background: #e8e8e8;
+}

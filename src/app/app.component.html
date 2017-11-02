@@ -1,0 +1,13 @@
+<div>
+  <app-header (onSideBarOpen)="toggleSideBar(sidebar)" [deviceType]="deviceType"></app-header>
+  <div class="container">
+      <div class="sidebar" [@sideBarState]="sidebar_state" #sidebar>
+          <app-side-bar [deviceType]="deviceType"></app-side-bar>
+      </div>
+      <div class="content" [@contentState]="content_state">
+          <router-outlet></router-outlet>
+      </div>
+  </div>
+
+</div>
+
