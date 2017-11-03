@@ -40,10 +40,13 @@ import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 export class SideBarComponent implements OnInit , OnChanges {
 
 
-  constructor(private sidebar_links: LinkProviderService) { }
+  constructor(private linkServ: LinkProviderService) { }
 
   @Input() deviceType: Device;
-  links: Link[] = this.sidebar_links.sidebarLink;
+  links: Link[] = this.linkServ.sidebarLink;
+  topLinks: Link[] = this.linkServ.headerLink;
+
+  isCombinLinks: boolean;
 
   ngOnInit() {
   }
@@ -56,21 +59,28 @@ export class SideBarComponent implements OnInit , OnChanges {
   }
 
   private handleRWD() {
-    console.log(`change and type is ${this.deviceType}`);
+    // console.log(`change and type is ${this.deviceType}`);
     switch (this.deviceType) {
       case Device.LapTop:
+        this.isCombinLinks = false;
         break;
       case Device.Pad:
-        break;
-      case Device.Phone4x:
+        this.isCombinLinks = false;
         break;
       case Device.Phone5x:
+        this.isCombinLinks = true;
+        break;
+      case Device.Phone4x:
+        this.isCombinLinks = true;
         break;
       case Device.Unknown:
+        this.isCombinLinks = false;
         break;
       default:
+        this.isCombinLinks = false;
         break;
     }
+
   }
 
 }
