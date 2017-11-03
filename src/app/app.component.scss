@@ -1,12 +1,11 @@
 .container{
   position: relative;
-  padding-top: 63px;
 }
 
 .sidebar{
   position: fixed;
   left: 0;
-  top: 63px;
+  top: 0;
   background-color: #e8e8e8;
   width: 260px;
   min-height: calc(100vh - 63px);

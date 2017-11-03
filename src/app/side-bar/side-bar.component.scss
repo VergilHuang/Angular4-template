@@ -1,7 +1,13 @@
 $link-color: rgb(85, 26, 139);
 
 .sidebar-container{
-  margin: 44px 0 0 20px;
+  overflow-y: auto;
+  height:calc(100vh - 63px);
+  margin-top: 63px;
+}
+
+.sidebar-menu{
+  margin: 25px 0 0 20px;
 }
 
 .sidebar-list{

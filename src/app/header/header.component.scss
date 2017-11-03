@@ -4,11 +4,16 @@ $link-color: rgb(85, 26, 139);
 .header{
   box-shadow: 0 2px 4px #888;
   position: fixed;
+  top: 0;
+  left: 0;
   background: #4e4ea2;
   width: 100%;
   font-size: 16px;
   height: 63px;
   z-index: 1000;
+  .header-box{
+    height: 100%;
+  }
 }
 
 .header-link-container{
