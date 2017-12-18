@@ -38,7 +38,7 @@ $link-color: rgb(85, 26, 139);
   padding:8px 4px 8px 10px;
   width:100%;
   font-size: 1.1rem;
-  &:hover{
+  &:hover,&:focus{
     background-color: rgba(0,0,0,0.1);
   }
 }
@@ -48,7 +48,7 @@ $link-color: rgb(85, 26, 139);
   padding: 8px 4px 8px 8px;
   width:100%;
   font-size: 1.1rem;
-  &:hover{
+  &:hover,&:focus{
     background-color: rgba(0,0,0,0.1);
   }
 }

@@ -50,9 +50,11 @@ export class SideBarComponent implements OnInit , OnChanges {
 
   ngOnInit() {
   }
+
   ngOnChanges(changes: SimpleChanges): void {
     this.handleRWD();
   }
+
   onToggleSubMenu(link: Link) {
     link.state = link.state === 'collepse' ? 'dropdown' : 'collepse';
 

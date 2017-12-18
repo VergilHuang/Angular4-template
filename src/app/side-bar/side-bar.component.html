@@ -1,28 +1,38 @@
 <div class="sidebar-container">
   <div class="sidebar-menu">
+    <!-- Combin topLinks to sidebar when the device screen size is small. -->
     <ul class="sidebar-list" *ngIf="isCombinLinks">
       <li *ngFor="let topLink of topLinks">
-        <a class="sidebar-link" [routerLink]="[topLink.url]">{{topLink.title}}</a>
+        <a class="sidebar-link" [routerLink]="[topLink.url]">{{topLink.display}}</a>
       </li>
     </ul>
+
+    <!-- Complix sidebar links contains sublinks -->
     <ul class="sidebar-list">
       <li *ngFor="let link of links">
-        <a *ngIf="!link.isGroup" class="sidebar-link" [routerLink]="[link.url]">{{link.title}}</a>
-        <a *ngIf="link.isGroup" class="sidebar-link" (click)="onToggleSubMenu(link);">{{link.title}}</a>
+        <!-- single link -->
+        <a *ngIf="!link.isGroup" class="sidebar-link" [routerLink]="[link.url]" title="{{link.title}}">{{link.display}}</a>
+        <!-- complix link with sublinks -->
+        <a *ngIf="link.isGroup" class="sidebar-link" (click)="onToggleSubMenu(link);" title="{{link.title}}" href="javascript:void(0)">{{link.display}}</a>
         <fa *ngIf="link.isGroup" class="link-arrow" [@rotateArrow]="link.state" name="chevron-right" size="1x"></fa>
         <ul class="sidebar-sublist" *ngIf="link.subLinks" [@sidebarDropdown]="link.state">
-            <li *ngFor="let subLink of link.subLinks">
-              <a *ngIf="!subLink.isGroup" class="sidebar-sublink" [routerLink]="[subLink.url]">{{subLink.title}}</a>
-              <a *ngIf="subLink.isGroup" class="sidebar-sublink" (click)="onToggleSubMenu(subLink);">{{subLink.title}}</a>
-              <fa *ngIf="subLink.isGroup" class="link-arrow" [@rotateArrow]="subLink.state" name="chevron-right" size="1x"></fa>
-              <ul class="sidebar-sublist" *ngIf="subLink.subLinks" [@sidebarDropdown]="subLink.state">
-                <li *ngFor="let subLink2 of subLink.subLinks">
-                    <a *ngIf="!subLink2.isGroup" class="sidebar-sublink" [routerLink]="[subLink2.url]">{{subLink2.title}}</a>
-                </li>
-              </ul>
-            </li>
+          <li *ngFor="let subLink of link.subLinks">
+            <!-- single sublink -->
+            <a *ngIf="!subLink.isGroup" class="sidebar-sublink" [routerLink]="[subLink.url]" title="{{link.title}}" >{{subLink.display}}</a>
+            <!-- third level sublinks group -->
+            <a *ngIf="subLink.isGroup" class="sidebar-sublink" (click)="onToggleSubMenu(subLink);" title="{{link.title}}" href="javascript:void(0)">{{subLink.display}}</a>
+            <fa *ngIf="subLink.isGroup" class="link-arrow" [@rotateArrow]="subLink.state" name="chevron-right" size="1x"></fa>
+            <ul class="sidebar-sublist" *ngIf="subLink.subLinks" [@sidebarDropdown]="subLink.state">
+              <li *ngFor="let subLink2 of subLink.subLinks">
+                  <!-- third level single link -->
+                  <a *ngIf="!subLink2.isGroup" class="sidebar-sublink" [routerLink]="[subLink2.url]" title="{{link.title}}">{{subLink2.display}}</a>
+              </li>
+            </ul>
+          </li>
         </ul>
+        <!--  -->
       </li>
     </ul>
+
   </div>
 </div>
