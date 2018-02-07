@@ -2,7 +2,7 @@ import { LinkProviderService } from '../link-provider.service';
 import { Link } from '../interface/Link';
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { state, style, transition, trigger, animate } from '@angular/animations';
-import { Device } from '../app.component';
+import { Device } from '../enums';
 import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
 
@@ -38,7 +38,6 @@ import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
   ]
 })
 export class SideBarComponent implements OnInit , OnChanges {
-
 
   constructor(private linkServ: LinkProviderService) { }
 

@@ -1,6 +1,6 @@
 <nav class="header">
   <div class="header-box">
-      <button class="hb-btn" (click)="onSideBarOpen.emit();hbbtn.blur();" #hbbtn><fa name="bars" size="2x"></fa></button>
+      <button *ngIf="_show_sidebar" class="hb-btn" (click)="onSideBarOpen.emit();hbbtn.blur();" #hbbtn><fa name="bars" size="2x"></fa></button>
       <ul class="header-link-container" *ngIf="linksIsShow">
         <li *ngFor="let link of links" class="header-link">
           <a [routerLink]="[link.url]" #rtlk (click)="rtlk.blur();" title="{{link.title}}">{{link.display}}</a>

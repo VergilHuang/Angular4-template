@@ -19,14 +19,14 @@ $link-color: rgb(85, 26, 139);
 .header-link-container{
   display: inline-block;
   position: relative;
-  top: -2px;
+  margin-left: 20px;
 }
 
 .header-link{
   list-style: none;
   display: inline-block;
   cursor: pointer;
-  margin: 11.5px 0;
+  margin: 22px 0;
 
   a{
     color: #e8e8e8;
@@ -46,7 +46,6 @@ $link-color: rgb(85, 26, 139);
 .hb-btn{
   height: 63px;
   width: 80px;
-  margin-right: 20px;
   background-color: rgba(0,0,0,0);
   border: 0;
   color: #f0f0f0;

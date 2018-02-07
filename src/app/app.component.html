@@ -1,7 +1,8 @@
 <div>
-  <app-header (onSideBarOpen)="toggleSideBar(sidebar)" [deviceType]="deviceType"></app-header>
+  <app-header-banner></app-header-banner>
+  <app-header *ngIf="_show_header" (onSideBarOpen)="toggleSideBar()" [deviceType]="deviceType" [_show_sidebar]="_show_sidebar"></app-header>
   <div class="container">
-      <div class="sidebar" [@sideBarState]="sidebar_state" #sidebar>
+      <div *ngIf="_show_sidebar" class="sidebar" [@sideBarState]="sidebar_state">
           <app-side-bar [deviceType]="deviceType"></app-side-bar>
       </div>
       <div class="content" [@contentState]="content_state">

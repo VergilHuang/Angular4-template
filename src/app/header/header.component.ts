@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Rx';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { Link } from '../interface/Link';
 import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
-import { Device } from '../app.component';
+import { Device } from '../enums';
 
 @Component({
   selector: 'app-header',
@@ -16,22 +16,33 @@ export class HeaderComponent implements OnInit , OnChanges {
   constructor(private link_pvd: LinkProviderService) { }
 
   @Input() deviceType: Device;
+  @Input() _show_sidebar: boolean;
+  // sidebar-open button click event
   @Output() onSideBarOpen = new EventEmitter();
 
+  // Determine wheter top links have to show up.
   linksIsShow = true;
 
   links: Link[] = this.link_pvd.headerLink;
 
   ngOnInit() {
-    this.handleRWD();
+    if (this._show_sidebar) {
+      this.handleRWD();
+    }
+
   }
 
+  // When screen size change an interval ,then 'deviceType' from app.component will changed .
+  // It will trigger ngOnChanges event .
   ngOnChanges(changes: SimpleChanges): void {
-    this.handleRWD();
+    if (this._show_sidebar) {
+      this.handleRWD();
+    }
+
   }
 
+  // Here handles when the screen size changed , then links have to show or not .
   private handleRWD() {
-    console.log(`change and type is ${this.deviceType}`);
     switch (this.deviceType) {
       case Device.LapTop:
         this.linksIsShow = true;

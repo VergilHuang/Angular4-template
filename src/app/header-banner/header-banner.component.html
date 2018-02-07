@@ -1,0 +1,9 @@
+<div class="banner">
+    <div class="banner-hat">
+      <ul class="banner-link-list">
+        <li *ngFor="let link of links"><a [routerLink]="[link.url]" title="{{link.title}}">{{link.display}}</a></li>
+      </ul>
+    </div>
+    <div class="banner-hair" id="hair">
+    </div>
+</div>

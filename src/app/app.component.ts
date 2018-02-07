@@ -1,23 +1,9 @@
+import { Http } from '@angular/http';
 import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 import { Observable } from 'rxjs/Rx';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnChanges, OnInit } from '@angular/core';
-
-export enum Device {
-  LapTop = 1,
-  Pad = 2,
-  Phone5x = 3,
-  Phone4x = 4,
-  Unknown = 9
-}
-
-export enum DeviceWidth {
-  LapTop = 1024,
-  Pad = 768,
-  Phone5x = 414,
-  Phone4x = 375
-}
-
+import { Device, DeviceWidth } from './enums';
 
 @Component({
   selector: 'app-root',
@@ -46,29 +32,41 @@ export enum DeviceWidth {
     ])
   ]
 })
-export class AppComponent implements OnInit, OnChanges {
+export class AppComponent implements OnInit {
 
   deviceType: Device;
-  sidebar_state = 'active';
-  content_state = 'compression';
+  _show_header: boolean;
+  _show_sidebar: boolean;
+  // default state of sidebar
+  sidebar_state = 'inactive';
+  // default state of content
+  content_state = this.sidebar_state === 'inactive' ? 'full' : 'compression';
   width: number;
+  name: string;
 
-  constructor() { }
+  constructor(private http: Http) {
+    this.getConfig().subscribe(config => {
+      this._show_header = config.show_header;
+      this._show_sidebar = config.show_sidebar;
+    });
+  }
   ngOnInit() {
     this.width = window.innerWidth;
     this.detectWindowResize();
     this.detectDeviceSize();
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-
-  }
-
-  toggleSideBar(sidebar) {
+  toggleSideBar() {
     // 側邊欄關閉狀態
     this.sidebar_state = this.sidebar_state === 'active' ? 'inactive' : 'active';
     // 內容區塊展開狀態
     this.content_state = this.content_state === 'compression' ? 'full' : 'compression';
+  }
+
+  // get configuration form app.config.json
+  private getConfig() {
+    return this.http.get('./app.config.json')
+                    .map( (res: any) => res.json());
   }
 
   private detectWindowResize() {
